@@ -10,10 +10,15 @@ namespace Assignment2.Repositories
 {
     class CustomerCountryRepository : ICustomerCountryRepository
     {
+        /// <summary>
+        /// Returns a list of all the countries in the database sorted by
+        /// amount of customers per country, in descending order. 
+        /// </summary>
+        /// <returns></returns>
         public List<CustomerCountry> GetCustomerCountries()
         {
             List<CustomerCountry> countryList = new List<CustomerCountry>();
-            string sql = "SELECT Country, SUM(CustomerId) as AmountOfCustomers FROM Customer " +
+            string sql = "SELECT Country, COUNT(CustomerId) as AmountOfCustomers FROM Customer " +
                 "GROUP BY Country ORDER BY AmountOfCustomers DESC";
             try
             {
