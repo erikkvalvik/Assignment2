@@ -8,5 +8,8 @@ namespace Assignment2.Models
 {
     class CustomerCountry
     {
+        public string CustomerID { get; set; }
+        public string Country { get; set; }
+        public int Sum { get; set; }
     }
 }

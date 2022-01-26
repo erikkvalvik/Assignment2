@@ -17,7 +17,7 @@ namespace Assignment2.Repositories
         public bool DeleteCustomer(string id);
 
         //Return a page of customers from the database. SHould take in limit and offset as parameters.
-
+        public List<Customer> GetCustomerPage(int limit, int offset);
         //Return number of customers in each counry, desc
 
         //Return highest spenders, ordered descending

@@ -8,5 +8,7 @@ namespace Assignment2.Models
 {
     class CustomerGenre
     {
+        public string CustomerID { get; set; }
+        public string Genre { get; set; }
     }
 }

@@ -173,6 +173,50 @@ namespace Assignment2.Repositories
             }
             return customer;
         }
+        /// <summary>
+        /// Returns a list of customers. Input for limit and offset. 
+        /// List is sorted alphabetically by firstname. If offset = 5, list begins after the 5th entry
+        /// alphabetically.
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public List<Customer> GetCustomerPage(int limit, int offset)
+        {
+            List<Customer> customerPage = new List<Customer>();
+            string sql = "SELECT CustomerId, FirstName, LastName, Country, PostalCode, Phone, Email" +
+                $" FROM Customer ORDER BY FirstName DESC LIMIT {limit} OFFSET {offset}";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionHelper.GetConnectionstring()))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Customer temp = new Customer();
+                                temp.CustomerID = reader.GetString(0);
+                                temp.FirstName = reader.GetString(1);
+                                temp.LastName = reader.GetString(2);
+                                temp.Country = reader.GetString(7);
+                                temp.PostalCode = reader.GetString(8);
+                                temp.PhoneNumber = reader.GetString(9);
+                                temp.Email = reader.GetString(11);
+                                customerPage.Add(temp);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                //Log to console
+            }
+            return customerPage;
+        }
 
         public bool UpdateCustomer(Customer customer)
         {
