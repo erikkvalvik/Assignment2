@@ -30,4 +30,4 @@ It also contains the [ConnectionHelper](https://github.com/erikkvalvik/Assignmen
 - [HighestSpenderRepository.cs](https://github.com/erikkvalvik/Assignment2/tree/main/Assignment2/Repositories/HighestSpenderRepository.cs)
 	- [IHighestSpenderRepository.cs](https://github.com/erikkvalvik/Assignment2/tree/main/Assignment2/Repositories/IHighestSpenderRepository.cs)
 
-**NOTE:** CustomerGenreRepository does is not finished, and will not return the correct values. See summary above *GetFavoriteGenre* method in [CustomerGenreRepository.cs](https://github.com/erikkvalvik/Assignment2/tree/main/Assignment2/Repositories/CustomerGenreRepository.cs).
+**NOTE:** CustomerGenreRepository is not finished, and will not return the correct values. See summary above *GetFavoriteGenre* method in [CustomerGenreRepository.cs](https://github.com/erikkvalvik/Assignment2/tree/main/Assignment2/Repositories/CustomerGenreRepository.cs).
