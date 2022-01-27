@@ -45,10 +45,33 @@ namespace Assignment2.Repositories
             }
             return success;
         }
-
+        /// <summary>
+        /// Deletes a customer based on the customers ID. 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool DeleteCustomer(string id)
         {
-            throw new NotImplementedException();
+            bool success = false;
+            string sql = "DELETE FROM Customer " +
+                "WHERE CustomerId = @CustomerId";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionHelper.GetConnectionstring()))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CustomerId", id);
+                        success = cmd.ExecuteNonQuery() > 0 ? true : false;
+                    }
+                }
+            }
+            catch(SqlException ex)
+            {
+               //Log to console
+            }
+            return success;
         }
         /// <summary>
         /// Reads and displays ID, First and Last name, Country, Postal code, phone number
@@ -217,7 +240,11 @@ namespace Assignment2.Repositories
             }
             return customerPage;
         }
-
+        /// <summary>
+        /// Updates values in a given customer. 
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <returns></returns>
         public bool UpdateCustomer(Customer customer)
         {
             bool success = false;

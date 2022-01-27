@@ -32,8 +32,8 @@ namespace Assignment2.Repositories
                             while (reader.Read())
                             {
                                 CustomerCountry temp = new CustomerCountry();
-                                temp.CustomerID = reader.GetString(0);
-                                temp.Country = reader.GetString(7);
+                                temp.Country = reader.GetString(0);
+                                temp.AmountOfCustomers = reader.GetString(2);
                                 countryList.Add(temp);
                             }
                         }

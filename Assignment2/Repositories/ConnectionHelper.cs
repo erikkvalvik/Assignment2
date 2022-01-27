@@ -9,6 +9,10 @@ namespace Assignment2.Repositories
 {
     class ConnectionHelper
     {
+        /// <summary>
+        /// Creates and returns a connectionstring.
+        /// </summary>
+        /// <returns></returns>
         public static string GetConnectionstring()
         {
             SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder();

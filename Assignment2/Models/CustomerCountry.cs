@@ -10,5 +10,6 @@ namespace Assignment2.Models
     {
         public string CustomerID { get; set; }
         public string Country { get; set; }
+        public string AmountOfCustomers { get; set; }
     }
 }
